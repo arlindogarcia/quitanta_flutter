@@ -1,24 +1,17 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:quitanta_flutter/src/config/app_data.dart' as appData;
 import 'package:quitanta_flutter/src/config/custom_colors.dart';
 import 'package:quitanta_flutter/src/pages/home/components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
-  HomeTab({Key? key}) : super(key: key);
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categories = [
-    'Frutas',
-    'Grãos',
-    'Verduras',
-    'Temperos',
-    'Cereais',
-  ];
-
   String selectedCategory = 'Frutas';
 
   @override
@@ -116,17 +109,17 @@ class _HomeTabState extends State<HomeTab> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
                 return CategoryTile(
-                  category: categories[index],
-                  isSelected: categories[index] == selectedCategory,
+                  category: appData.categories[index],
+                  isSelected: appData.categories[index] == selectedCategory,
                   onPressed: () {
                     setState(() {
-                      selectedCategory = categories[index];
+                      selectedCategory = appData.categories[index];
                     });
                   },
                 );
               },
               separatorBuilder: (_, index) => const SizedBox(width: 10),
-              itemCount: categories.length,
+              itemCount: appData.categories.length,
             ),
           ),
 

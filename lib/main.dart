@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quitanta_flutter/src/auth/sign_in_screen.dart';
+import 'package:quitanta_flutter/src/pages/auth/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
