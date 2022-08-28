@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quitanta_flutter/src/config/app_data.dart' as appData;
 import 'package:quitanta_flutter/src/config/custom_colors.dart';
 import 'package:quitanta_flutter/src/pages/home/components/category_tile.dart';
+import 'package:quitanta_flutter/src/pages/home/components/item_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -124,6 +125,24 @@ class _HomeTabState extends State<HomeTab> {
           ),
 
           // Grid
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              physics: const BouncingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 9 / 11.5,
+              ),
+              itemCount: appData.items.length,
+              itemBuilder: (_, index) {
+                return ItemTile(
+                  item: appData.items[index],
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
