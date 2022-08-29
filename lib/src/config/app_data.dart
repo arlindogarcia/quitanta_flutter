@@ -1,5 +1,6 @@
-import 'package:quitanta_flutter/src/config/cart_item_model.dart';
+import 'package:quitanta_flutter/src/models/cart_item_model.dart';
 import 'package:quitanta_flutter/src/models/item_model.dart';
+import 'package:quitanta_flutter/src/models/user_model.dart';
 
 ItemModel apple = ItemModel(
   description:
@@ -89,3 +90,12 @@ List<CartItemModel> cartItems = [
     quantity: 3,
   ),
 ];
+
+// Usuário
+UserModel user = UserModel(
+  phone: '43998118360',
+  name: 'Arlindo Garcia',
+  email: 'arlindo@gmail.com',
+  cpf: '12950763901',
+  password: '123456',
+);

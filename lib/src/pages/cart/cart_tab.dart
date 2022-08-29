@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quitanta_flutter/src/config/cart_item_model.dart';
+import 'package:quitanta_flutter/src/models/cart_item_model.dart';
 import 'package:quitanta_flutter/src/config/custom_colors.dart';
 import 'package:quitanta_flutter/src/pages/cart/components/cart_tile.dart';
 import 'package:quitanta_flutter/src/services/utils_services.dart';
