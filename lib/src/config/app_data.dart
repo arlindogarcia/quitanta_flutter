@@ -1,3 +1,4 @@
+import 'package:quitanta_flutter/src/config/cart_item_model.dart';
 import 'package:quitanta_flutter/src/models/item_model.dart';
 
 ItemModel apple = ItemModel(
@@ -66,9 +67,25 @@ List<ItemModel> items = [
 
 // Lista de categorias
 List<String> categories = [
-    'Frutas',
-    'Grãos',
-    'Verduras',
-    'Temperos',
-    'Cereais',
-  ];
+  'Frutas',
+  'Grãos',
+  'Verduras',
+  'Temperos',
+  'Cereais',
+];
+
+// Lista do carrinho
+List<CartItemModel> cartItems = [
+  CartItemModel(
+    item: apple,
+    quantity: 2,
+  ),
+  CartItemModel(
+    item: mango,
+    quantity: 1,
+  ),
+  CartItemModel(
+    item: guava,
+    quantity: 3,
+  ),
+];
