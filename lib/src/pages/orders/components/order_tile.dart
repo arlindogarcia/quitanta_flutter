@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quitanta_flutter/src/models/cart_item_model.dart';
 import 'package:quitanta_flutter/src/models/order_model.dart';
+import 'package:quitanta_flutter/src/pages/common_widgets/payment_dialog.dart';
 import 'package:quitanta_flutter/src/pages/orders/components/order_status_widget.dart';
 import 'package:quitanta_flutter/src/services/utils_services.dart';
 
@@ -102,7 +103,14 @@ class OrderTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => PaymentDialog(
+                      order: order,
+                    ),
+                  );
+                },
                 icon: Image.asset(
                   'assets/app_images/pix.png',
                   height: 18,
