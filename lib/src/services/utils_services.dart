@@ -37,10 +37,13 @@ class UtilsServices {
         mainAxisSize: MainAxisSize.min,
         children: [
           Visibility(
-            visible: icon == null ? false : true,
+            visible: isError ? true : (icon == null ? false : true),
             child: Column(
               children: [
-                Icon(icon),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 3, 5, 0),
+                  child: Icon(isError ? Icons.error : icon),
+                ),
                 const SizedBox(
                   width: 12.0,
                 ),
