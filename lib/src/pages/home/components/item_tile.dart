@@ -5,12 +5,15 @@ import 'package:quitanta_flutter/src/pages/product/product_screen.dart';
 import 'package:quitanta_flutter/src/services/utils_services.dart';
 
 class ItemTile extends StatelessWidget {
+  final ItemModel item;
+  final void Function(GlobalKey) cartAnimationMethod;
+  final GlobalKey imageGk = GlobalKey();
+
   ItemTile({
     Key? key,
     required this.item,
+    required this.cartAnimationMethod,
   }) : super(key: key);
-
-  final ItemModel item;
 
   final UtilsServices utilsServices = UtilsServices();
 
@@ -44,9 +47,14 @@ class ItemTile extends StatelessWidget {
                 children: [
                   // Imagem
                   Expanded(
-                    child: Hero(
-                      tag: item.imageUrl,
-                      child: Image.asset(item.imageUrl),
+                    child: Container(
+                      key: imageGk,
+                      child: Hero(
+                        tag: item.imageUrl,
+                        child: Image.asset(
+                          item.imageUrl,
+                        ),
+                      ),
                     ),
                   ),
 
@@ -90,7 +98,9 @@ class ItemTile extends StatelessWidget {
           top: 4,
           right: 4,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              cartAnimationMethod(imageGk);
+            },
             child: Container(
               height: 40,
               width: 35,
