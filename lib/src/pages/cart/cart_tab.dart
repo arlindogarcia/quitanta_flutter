@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:quitanta_flutter/src/models/cart_item_model.dart';
 import 'package:quitanta_flutter/src/config/custom_colors.dart';
 import 'package:quitanta_flutter/src/pages/cart/components/cart_tile.dart';
@@ -15,11 +16,25 @@ class CartTab extends StatefulWidget {
 
 class _CartTabState extends State<CartTab> {
   final UtilsServices utilsServices = UtilsServices();
+  late FToast fToast;
+
+  @override
+  void initState() {
+    super.initState();
+    fToast = FToast();
+    fToast.init(context);
+  }
 
   void removeItemFromCart(CartItemModel cartItem) {
-    setState(() {
-      appData.cartItems.remove(cartItem);
-    });
+    setState(
+      () {
+        appData.cartItems.remove(cartItem);
+        utilsServices.showToast(
+          fToast: fToast,
+          message: '${cartItem.item.itemName} removido(a) do carrinho',
+        );
+      },
+    );
   }
 
   double cartTotalPrice() {
@@ -101,8 +116,13 @@ class _CartTabState extends State<CartTab> {
                               order: appData.orders.first,
                             ),
                           );
+                        } else {
+                          utilsServices.showToast(
+                            fToast: fToast,
+                            message: 'Pedido não confirmado',
+                            isError: true,
+                          );
                         }
-                        print(result);
                       },
                       child: const Text(
                         'Concluir pedido',
