@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:quitanta_flutter/src/config/custom_colors.dart';
+import 'package:quitanta_flutter/src/pages/common_widgets/app_name_widget.dart';
 import 'package:quitanta_flutter/src/pages/common_widgets/custom_text_field.dart';
 import 'package:quitanta_flutter/src/pages/auth/sign_up_screen.dart';
 import 'package:quitanta_flutter/src/pages/base/base_screen.dart';
@@ -25,28 +26,9 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Nome do app
-                    Text.rich(
-                      TextSpan(
-                        style: const TextStyle(
-                          fontSize: 40,
-                        ),
-                        children: [
-                          const TextSpan(
-                            text: 'Quitanda',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'Virtual',
-                            style: TextStyle(
-                              color: CustomColors.customContrastColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                    const AppNameWidget(
+                      quitandaTitleColor: Colors.white,
+                      textSize: 40,
                     ),
 
                     // Categorias
